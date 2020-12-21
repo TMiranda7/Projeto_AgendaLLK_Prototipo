@@ -7,6 +7,7 @@ namespace Agenda.Dominio.Entity
 {
     public class Contato : Entity  
     {
+        public int id { get; set; }
         public virtual Pessoa Pessoa { get; set; }
         public int PessoaId { get; set; }
         public int TipoContato { get; set; }
@@ -16,7 +17,7 @@ namespace Agenda.Dominio.Entity
         public string Site { get; set; }
         public override void Validate()
         {
-            if ( string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Site) || Celular == null || Telefone == null )
+            if ( string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Site))
             {
                 AdicionarCritica("Informe algum contato!");
             }

@@ -9,13 +9,28 @@ namespace Agenda.Repository.Configurator
     {
         public void Configure(EntityTypeBuilder<Contato> builder)
         {
-            builder.HasKey(C => C.id);
-            builder.Property(C => C.Celular);
-            builder.Property(C => C.Telefone);
-            builder.Property(C => C.Email);
-            builder.Property(C => C.Site);
-            builder.Property(C => C.PessoaId).IsRequired();
-            builder.HasOne(C => C.Pessoa);
+            builder
+                .HasKey(C => C.id);
+            
+            builder
+                .Property(C => C.Celular)
+                .HasMaxLength(10);
+            
+            builder
+                .Property(C => C.Telefone)
+                .HasMaxLength(10);
+            
+            builder
+                .Property(C => C.Email)
+                .HasMaxLength(100);
+            
+            builder
+                .Property(C => C.Site)
+                .HasMaxLength(100);
+            
+            builder
+                .Property(C => C.PessoaId)
+                .IsRequired();
         }
     }
 }

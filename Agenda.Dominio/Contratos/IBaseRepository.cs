@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,5 +11,6 @@ namespace Agenda.Dominio.Contratos
         void Remove(TEntity entity);
         void Update(TEntity entity);
         IEnumerable<TEntity> ObterTodos();
+        TEntity ObterId(TEntity entity);
     }
 }

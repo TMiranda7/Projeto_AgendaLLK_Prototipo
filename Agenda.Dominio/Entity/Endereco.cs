@@ -1,6 +1,7 @@
 ﻿using Agenda.Dominio.DataObject;
 using Agenda.Dominio.Enum;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,6 +9,7 @@ namespace Agenda.Dominio.Entity
 {
     public class Endereco : Entity
     {
+        public int id { get; set; }
         public string Logradouro { get; set; }
         public int numero { get; set; }
         public string Complemento { get; set; }
@@ -21,9 +23,10 @@ namespace Agenda.Dominio.Entity
 
         public override void Validate()
         {
-            if (string.IsNullOrEmpty(Logradouro))
+            LimparValidacao();
+            if (string.IsNullOrEmpty(CEP))
             {
-                this.AdicionarCritica("Logradouro não informado!");
+                AdicionarCritica("Informe o CEP");
             }
         }
     }

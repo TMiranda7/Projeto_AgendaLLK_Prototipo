@@ -5,27 +5,26 @@ namespace Agenda.Dominio.Entity
 {
     public abstract class Entity
     {
-        public int id { get; set; }
         public abstract void Validate();
-        public List<string> _mensagem { get; set; }
-
+        private List<string> _mensagemValidacao { get; set; }
         public bool EValido
         {
             get
             {
-                return !_mensagem.Any();
+                return !MensagemValidacao.Any();
             }
         }
         protected List<string> MensagemValidacao
         {
             get
             {
-                return _mensagem ?? (_mensagem = new List<string>());
+                return _mensagemValidacao ?? (_mensagemValidacao = new List<string>());
             }
         }
+
         protected void LimparValidacao()
         {
-            _mensagem.Clear();
+            _mensagemValidacao.Clear();
         }
 
         public void AdicionarCritica(string msg)

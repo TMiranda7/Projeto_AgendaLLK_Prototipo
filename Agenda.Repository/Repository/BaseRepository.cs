@@ -1,6 +1,7 @@
 ﻿using Agenda.Dominio.Contratos;
 using Agenda.Repository.Context;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,11 @@ namespace Agenda.Repository.Repository
         public void Dispose()
         {
             AgendaContext.Dispose();
+        }
+
+        public TEntity ObterId(TEntity entity)
+        {
+            return AgendaContext.Set<TEntity>().Find(entity);
         }
 
         public IEnumerable<TEntity> ObterTodos()
