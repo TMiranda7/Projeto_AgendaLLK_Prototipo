@@ -35,7 +35,7 @@ namespace Agenda.Web.Controllers
         public IActionResult Post(Pessoa pessoa)
         {
             try
-            {
+            {   
                 pessoaRepository.Add(pessoa);
                 return Created("api/pessoa", pessoa);
             }
