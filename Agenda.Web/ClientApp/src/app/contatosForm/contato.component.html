@@ -1,19 +1,57 @@
-<div class="form-row">
-    <div class="col">
-        <input type="text" placeholder="Nome" >    
+
+<form >
+    <div class="form-row" style="margin-bottom: 40px;">
+        <button type="button" style="margin-left: 5px;" class="btn btn-outline-primary">Salvar</button>
+        <button type="button" class="btn btn-outline-warning" [routerLink]='["/fetch-data"]' (click)="cancelar()" >Cancelar</button>
     </div>
-    <div class="col">
-        <input type="text" placeholder="CPF" >    
+    <div class="form-row" style="margin-bottom: 10px;">
+        <div class="col">
+            <input type="text" class="form-control" style="width: 197%;" placeholder="Nome" >    
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" style="width: 69%; margin-left: 21rem;" placeholder="CPF" >    
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-primary dropdown-toggle" style="margin-left: 14rem;" type="button" id="dropdownMenu" data-toggle="dropdown">
+              Tipo de Contato
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                <button class="dropdown-item" type="button">Pessoal</button>
+                <button class="dropdown-item" type="button">Comercial</button>
+            </div>
+        </div>
     </div>
-    <div class="col">
-        <input type="text" placeholder="Email" >    
+    <div class="form-row" style="margin-bottom: 10px;">
+        <div class="col">
+            <input type="email" class="form-control" placeholder="Email" >    
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Telefone" >    
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Celular" >    
+        </div>
     </div>
-</div>
-<div class="form-row">
-    <div class="col">
-        <input type="text" placeholder="Telefone" >    
+    <div class="form-row" style="margin-bottom: 10px;">
+        <div class="col">
+            <input type="text" class="form-control" style="width: 148%;" placeholder="Logradouro">
+        </div>
+        <div class="col">
+            <input type="number" class="form-control" style="margin-left:11em; width: 51%;" placeholder="Numero">
+        </div>
+        <div class="col">
+            <input type="number" class="form-control" placeholder="Cep">
+        </div>
     </div>
-    <div class="col">
-        <input type="text" placeholder="Celular" >    
+    <div class="form-row" style="margin-bottom: 10px;">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Bairro">
+        </div>    
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Cidade">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Estado">
+        </div>
     </div>
-</div>
+</form>

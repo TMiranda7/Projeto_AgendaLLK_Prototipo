@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-contato-component',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class ContatoComponent {
 
+
+constructor(private router: Router) {
+}
+    cancelar(){
+        alert("Os campos serão Limpos!");
+    }
 }

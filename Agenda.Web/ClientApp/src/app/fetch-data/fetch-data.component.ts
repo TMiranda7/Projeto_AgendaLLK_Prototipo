@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Contatos } from '../././Models/contatos.model';
 
 @Component({
   selector: 'app-fetch-data',
@@ -8,22 +9,15 @@ import { Router } from '@angular/router';
   styleUrls:['./fetch-data.component.css']
 })
 export class FetchDataComponent {
-  public forecasts: WeatherForecast[];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string , private router : Router) {
-    http.get<WeatherForecast[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
+  public contato: Contatos ;
+
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string , private router : Router, private _contato: Contatos) {
+    this.contato = _contato;
+    this.contato.pessoa.nome = "Thiago Miranda"
   }
+
   FormContato(){
-    console.log('entrou!')
     this.router.navigate['/contato']  
   }
-}
-
-interface WeatherForecast {
-  dateFormatted: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
 }
