@@ -12,9 +12,9 @@ export class FetchDataComponent {
 
   public contato: Contatos ;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string , private router : Router, private _contato: Contatos) {
-    this.contato = _contato;
-    this.contato.pessoa.nome = "Thiago Miranda"
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string , private router : Router , private _contato: Contatos) {
+    //this.contato = _contato;
+    
   }
 
   FormContato(){

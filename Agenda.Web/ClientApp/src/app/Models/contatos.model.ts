@@ -1,4 +1,13 @@
-export class Contatos {
+import { Endereco } from "./endereco.model";
+
+export interface Pessoa {
+    id: number;
+    nome: string;
+    cpf: number;
+    endereco: Endereco;
+}
+
+export interface Contatos {
     pessoa : Pessoa
     id: number;
     pesssoaId: number;
@@ -7,10 +16,4 @@ export class Contatos {
     celular: number;
     email: string;
     site: string;
-}
-
-export class Pessoa {
-    id: number;
-    nome: string;
-    cpf: number
 }
