@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { PessoaSeletor } from '../Seletores/contato.seletor';
+import { EnderecoModel } from '../Models/endereco.model';
+import { PessoaModel } from '../Models/pessoa.model';
 import { ContatoService } from '../Services/contato.services';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-contato-component',
@@ -9,18 +12,58 @@ import { ContatoService } from '../Services/contato.services';
     styleUrls:['./contato.component.css']
 })
 export class ContatoComponent  {
-    public pessoa : PessoaSeletor;
 
-  constructor( public _pessoa : PessoaSeletor ) {
-    this.pessoa = _pessoa;
+    public endereco:EnderecoModel = {
+      CEP:'',
+      bairro:'',
+      cidade:'',
+      complemento:'',
+      estado:'',
+      logradouro:'',
+      numero:''
+    }
+
+    public pessoa : PessoaModel = {
+      nome: '',
+      celular: '',
+      cpf: '',
+      email: '',
+      endereco: this.endereco,
+      site:'',
+      telefone: '',
+      tipoContato: '',
+    }
+
+  constructor( public service : ContatoService ,private router: Router , public http: HttpClient ) {
+    this.pessoa;
+  }
+
+  salvar(){
   }
 
   cancelar(){
-    alert("Os campos serão Limpos!");     
+    this.router.navigate(['/lista'])
   }
 
-  searchCep(){
-    alert("Os pesquisando ");     
+  searchCep(cep , form){
+    if ( cep ){
+      let Url = `//viacep.com.br/ws/${cep}/json/`;
+      this.http.get(Url).pipe(map(res => res))
+      .subscribe( dado => this.popularDados( dado, form));
+    }
+  }
+
+  popularDados( dados, formulario){
+
+    formulario.form.patchValue({
+        logradouro : dados.logradouro,
+        bairro: dados.bairro ,
+        cidade : dados.localidade,
+        estado : dados.uf
+    });
+  }
+
+  resetDados(formulario){
   }
 
 }

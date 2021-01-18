@@ -3,11 +3,11 @@ import { EnderecoModel } from "./endereco.model";
 export interface PessoaModel {
     id?: number;
     nome: string;
-    cpf: number;
+    cpf: string;
     endereco: EnderecoModel 
-    tipoContato: number;
-    telefone: number;
-    celular: number;
+    tipoContato: string;
+    telefone: string;
+    celular: string;
     email: string;
     site: string;
 }

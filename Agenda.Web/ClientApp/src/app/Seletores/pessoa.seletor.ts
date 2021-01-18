@@ -2,13 +2,13 @@ import { ObjectMapper } from 'json-object-mapper';
 import { EnderecoSeletor } from "./endereco.seletor";
 
 export class PessoaSeletor {
-    public Id : number ;
+    public Id : number = 0 ;
     public nome : string = '' ;
-    public cpf : number = 0 ;
+    public cpf : string = '' ;
     public endereco : EnderecoSeletor ;
-    public tipoContato : number = 0 ;
-    public telefone : number = 0 ;
-    public celular : number = 0 ;
+    public tipoContato : string = '' ;
+    public telefone : string = '' ;
+    public celular : string = '' ;
     public email : string = '' ;
     public site : string = '' ;
 
