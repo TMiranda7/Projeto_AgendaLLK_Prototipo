@@ -8,9 +8,8 @@ namespace Agenda.Repository.Context
     public class AgendaContext : DbContext
     {
         public DbSet<Pessoa> Pessoas { get; set; }
-        public DbSet<Contato> Contatos { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
-        public DbSet<TipoEndereco> TipoEnderecos { get; set; }
+        public DbSet<TipoEndereco> TipoEndereco { get; set; }
 
         public AgendaContext(DbContextOptions options) : base(options)
         {
@@ -19,9 +18,7 @@ namespace Agenda.Repository.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new PessoaConfigurator());
-            modelBuilder.ApplyConfiguration(new ContatoConfigurator());
             modelBuilder.ApplyConfiguration(new EnderecoConfigurator());
-            modelBuilder.ApplyConfiguration(new TipoEnderecoConfigurator());
 
             modelBuilder.Entity<TipoEndereco>().HasData(
                 new TipoEndereco() { Id = 1 , Descricao = "Residencial" },

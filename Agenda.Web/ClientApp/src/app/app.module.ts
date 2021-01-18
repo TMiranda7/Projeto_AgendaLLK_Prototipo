@@ -6,18 +6,20 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ContatoComponent } from './contatosForm/contato.component';
 import { FooterComponent } from './footer/footer.component';
+import { ListaContatoComponent } from './listaContato/listaContato.component';
+import { ContatoService } from './Services/contato.services';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    FetchDataComponent,
     ContatoComponent,
-    FooterComponent
+    FooterComponent,
+    ListaContatoComponent
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -25,11 +27,11 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'contato', component: ContatoComponent },
+      { path: 'lista/contato', component: ContatoComponent },
+      { path: 'lista', component:ListaContatoComponent}
     ])
   ],
-  providers: [],
+  providers: [ ContatoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

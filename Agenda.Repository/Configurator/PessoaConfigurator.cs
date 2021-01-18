@@ -10,8 +10,8 @@ namespace Agenda.Repository.Configurator
         public void Configure(EntityTypeBuilder<Pessoa> builder)
         {
             builder
-                .HasKey(P => P.id);
-            
+                .HasKey(P => P.Id);
+
             builder
                 .Property(P => P.Nome)
                 .IsRequired()
@@ -28,11 +28,25 @@ namespace Agenda.Repository.Configurator
                 .HasMaxLength(100);
 
             builder
-                .HasMany(P => P.Endereco)
-                .WithOne(E => E.Pessoa);
+                .HasOne(P => P.Endereco)
+                .WithOne(P => P.Pessoa)
+                .HasForeignKey<Endereco>(P => P.PessoaId);
+
             builder
-                .HasMany(P => P.Contato)
-                .WithOne(P => P.Pessoa);
+                .Property(C => C.Celular)
+                .HasMaxLength(10);
+
+            builder
+                .Property(C => C.Telefone)
+                .HasMaxLength(10);
+
+            builder
+                .Property(C => C.Email)
+                .HasMaxLength(100);
+
+            builder
+                .Property(C => C.Site)
+                .HasMaxLength(100);
 
         }
     }

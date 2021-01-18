@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Runtime.InteropServices;
 
 namespace Agenda.Web
 {
@@ -30,7 +31,6 @@ namespace Agenda.Web
             services.AddDbContext<AgendaContext>(option => option.UseLazyLoadingProxies()
                                                  .UseMySql(connectionString, m => m.MigrationsAssembly("Agenda.Repository")));
 
-            services.AddScoped<IContatoRepositry, ContatoRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
             services.AddScoped<IPessoaRepository, PessoaRepository>();
 

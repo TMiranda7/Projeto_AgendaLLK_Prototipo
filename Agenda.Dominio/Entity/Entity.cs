@@ -21,12 +21,10 @@ namespace Agenda.Dominio.Entity
                 return _mensagemValidacao ?? (_mensagemValidacao = new List<string>());
             }
         }
-
         protected void LimparValidacao()
         {
             _mensagemValidacao.Clear();
         }
-
         public void AdicionarCritica(string msg)
         {
             MensagemValidacao.Add(msg);

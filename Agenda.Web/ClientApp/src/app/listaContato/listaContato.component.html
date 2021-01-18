@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+         <a href="#" style="margin-bottom: 12px;" class="btn btn-success" [routerLink]='["./contato"]'>Novo</a>
+         <table class="table table-striped table-hover">   
+             <thead>
+                 <tr>
+                   <th>Nome</th>
+                   <th>Email</th>
+                   <th>Telefone</th>
+                   <th>AÇões</th>
+                 </tr>
+             </thead>
+             <tbody>  
+                <tr *ngFor="let C of Contatos" >
+                  <td>{{C.nome}}</td>
+                  <td>{{C.email}}</td>
+                  <td>{{C.telefone}}</td>
+                  <td>
+                    <button class="btn btn-danger">Alterar</button>
+                    <button class="btn btn-danger">Deletar</button>
+                  </td>
+               </tr>
+             </tbody>
+         </table>
+     </div>
+  </div>
+</div>

@@ -10,16 +10,17 @@ namespace Agenda.Repository.Configurator
         public void Configure(EntityTypeBuilder<Endereco> builder)
         {
             builder
-                .HasKey(E => E.id);
+                .HasKey(E => E.Id);
             
             builder
                 .Property(E => E.Logradouro)
                 .IsRequired()
                 .HasMaxLength(50);
-            
+
             builder
-                .Property(E => E.numero)
-                .IsRequired();
+                .Property(E => E.Numero)
+                .IsRequired()
+                .HasMaxLength(4);
             
             builder
                 .Property(E => E.Complemento)
@@ -44,9 +45,14 @@ namespace Agenda.Repository.Configurator
                 .Property(E => E.CEP)
                 .IsRequired()
                 .HasMaxLength(8);
+
+            builder
+                .HasOne(E => E.Pessoa)
+                .WithOne(E => E.Endereco)
+                .HasForeignKey<Pessoa>(E => E.EnderecoId);
             
             builder
-                .Property(E => E.TipoEnderecoId)
+                .Property(E => E.TipoEndereco)
                 .IsRequired();
             
             builder

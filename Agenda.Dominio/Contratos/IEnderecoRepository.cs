@@ -7,5 +7,6 @@ namespace Agenda.Dominio.Contratos
 {
     public interface IEnderecoRepository : IBaseRepository<Endereco>
     {
+
     }
 }
