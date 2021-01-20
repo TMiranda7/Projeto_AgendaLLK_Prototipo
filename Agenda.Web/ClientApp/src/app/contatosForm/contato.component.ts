@@ -5,6 +5,7 @@ import { ContatoService } from '../Services/contato.services';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-contato-component',
@@ -39,6 +40,7 @@ export class ContatoComponent  {
   }
 
   salvar(){
+    console.log(this.pessoa)
   }
 
   cancelar(){
@@ -46,10 +48,8 @@ export class ContatoComponent  {
   }
 
   searchCep(cep , form){
-    if ( cep ){
-      let Url = `//viacep.com.br/ws/${cep}/json/`;
-      this.http.get(Url).pipe(map(res => res))
-      .subscribe( dado => this.popularDados( dado, form));
+    if( cep ){
+      this.service.ObterCep(cep).subscribe( dado => this.popularDados( dado , form ) )
     }
   }
 

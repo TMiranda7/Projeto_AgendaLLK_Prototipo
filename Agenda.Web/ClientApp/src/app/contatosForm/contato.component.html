@@ -1,46 +1,43 @@
 
 <form #f="ngForm" (ngSubmit)="onSubmit(f)"  >
     <div class="form-row" style="margin-bottom: 40px;">
-        <button type="button" style="margin-left: 5px;" class="btn btn-outline-primary" (click)="salvar()" >Salvar</button>
+        <button type="button" style="margin-left: 5px;margin-right: 5px;" class="btn btn-outline-primary" (click)="salvar()" >Salvar</button>
         <button type="button" class="btn btn-outline-warning" (click)="cancelar()" >Cancelar</button>
     </div>
     <div class="form-row" style="margin-bottom: 10px;">
         <div class="col">
-            <input type="text" class="form-control" style="width: 197%;" [(ngModel)]="pessoa.nome" name="nome" placeholder="Nome" >    
+            <input type="text" class="form-control" style="width: 40rem;" [(ngModel)]="pessoa.nome" name="nome" placeholder="Nome" >    
         </div>
         <div class="col">
-            <input type="text" class="form-control" style="width: 69%; margin-left: 21rem;" [(ngModel)]="pessoa.cpf" name="cpf" placeholder="CPF" >    
+            <input type="text" class="form-control" style="width: 18rem;" [(ngModel)]="pessoa.cpf" name="cpf" maxlength="11" placeholder="CPF" >
         </div>
         <div class="col">
-            <button class="btn btn-outline-primary dropdown-toggle" style="margin-left: 14rem;" type="button" id="dropdownMenu" data-toggle="dropdown">
-                Tipo de Contato
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <button class="dropdown-item" value="1" type="button">Pessoal</button>
-              <button class="dropdown-item" value="2" type="button">Comercial</button>
-            </div>
+            <select  class='form-control primary' [value]='0'>
+                <option value='0'>Pessoal</option>
+                <option value='1'>Comercial</option>
+            </select>
         </div>
     </div>
     <div class="form-row" style="margin-bottom: 10px;">
         <div class="col">
-            <input type="email" class="form-control" [(ngModel)]="pessoa.email" placeholder="Email" name="email" >    
+            <input type="email" class="form-control" style="width: 34rem;" [(ngModel)]="pessoa.email" placeholder="Email" name="email" >    
         </div>
         <div class="col">
-            <input type="text" class="form-control" [(ngModel)]="pessoa.telefone" mask="(00)0000-0000" placeholder="Telefone" name="telefone" >    
+            <input type="text" class="form-control" style="width: 17rem;" [(ngModel)]="pessoa.telefone" placeholder="Telefone" name="telefone" maxlength="9" >    
         </div>
         <div class="col">
-            <input type="text" class="form-control" [(ngModel)]="pessoa.celular" mask="(00)00000-0000" placeholder="Celular" name="celular" >    
+            <input type="text" class="form-control" style="width: 17rem;" [(ngModel)]="pessoa.celular" mask="(99)99999-9999" placeholder="Celular" name="celular" maxlength="8" >    
         </div>
     </div>
     <div class="form-row" style="margin-bottom: 10px;">
         <div class="col">
-            <input type="text" class="form-control" style="width: 148%;" [(ngModel)]="pessoa.endereco.logradouro" placeholder="Logradouro" id="logradouro" name="logradouro">
+            <input type="text" class="form-control" style="width: 39rem;" [(ngModel)]="pessoa.endereco.logradouro" placeholder="Logradouro" id="logradouro" name="logradouro">
         </div>
         <div class="col">
-            <input type="number" class="form-control" style="margin-left:11em; width: 51%;" [(ngModel)]="pessoa.endereco.numero" placeholder="Numero" name="numero">
+            <input type="number" class="form-control" style="width: 9rem;" [(ngModel)]="pessoa.endereco.numero" placeholder="Nº " name="numero">
         </div>
         <div class="col">
-            <input type="number" class="form-control" [(ngModel)]="pessoa.endereco.cep" placeholder="Cep" (blur)="searchCep($event.target.value, f)" name="cep">
+            <input type="number" class="form-control" [(ngModel)]="pessoa.endereco.cep" style="width: 19rem;" placeholder="Cep" (blur)="searchCep($event.target.value, f)" name="cep">
         </div>
     </div>
     <div class="form-row" style="margin-bottom: 10px;">

@@ -1,11 +1,7 @@
 ﻿using Agenda.Dominio.Contratos;
 using Agenda.Dominio.Entity;
-using Agenda.Repository.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Agenda.Web.Controllers
 {
@@ -20,10 +16,10 @@ namespace Agenda.Web.Controllers
 
         [HttpGet]
         public ActionResult Get()
-        {
+        { 
             try
             {
-                return Ok();
+                return Ok(enderecoRepository.ObterTodos());
             }
             catch (Exception ex)
             {
@@ -32,7 +28,7 @@ namespace Agenda.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Endereco endereco)
+        public IActionResult Post([FromBody]Endereco endereco)
         {
             try
             {   
