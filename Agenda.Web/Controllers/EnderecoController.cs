@@ -33,7 +33,7 @@ namespace Agenda.Web.Controllers
             try
             {   
                 enderecoRepository.Add(endereco);
-                return Created("api/pessoa", endereco);
+                return Created("api/endereco", endereco);
             }
             catch (Exception ex)
             {

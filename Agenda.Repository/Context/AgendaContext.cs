@@ -17,12 +17,12 @@ namespace Agenda.Repository.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new PessoaConfigurator());
             modelBuilder.ApplyConfiguration(new EnderecoConfigurator());
-
+            modelBuilder.ApplyConfiguration(new PessoaConfigurator());
+        
             modelBuilder.Entity<TipoEndereco>().HasData(
                 new TipoEndereco() { Id = 1 , Descricao = "Residencial" },
-                new TipoEndereco() { Id = 2 , Descricao = "Comercial"},
+                new TipoEndereco() { Id = 2 , Descricao = "Comercial" },
                 new TipoEndereco() { Id = 3 , Descricao = "Galpão" },
                 new TipoEndereco() { Id = 4 , Descricao = "Buffet" }
             );

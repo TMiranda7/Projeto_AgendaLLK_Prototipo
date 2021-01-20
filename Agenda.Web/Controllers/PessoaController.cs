@@ -8,7 +8,7 @@ namespace Agenda.Web.Controllers
     [Route("api/[controller]")]
     public class PessoaController : Controller
     {
-        private readonly IPessoaRepository pessoaRepository ;
+        private readonly IPessoaRepository pessoaRepository;
         public PessoaController(IPessoaRepository _pessoaRepository)
         {
             pessoaRepository = _pessoaRepository;
@@ -31,7 +31,7 @@ namespace Agenda.Web.Controllers
         public IActionResult Post([FromBody]Pessoa pessoa)
         {
             try
-            {   
+            {
                 pessoaRepository.Add(pessoa);
                 return Created("api/pessoa", pessoa);
             }

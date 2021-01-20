@@ -14,15 +14,11 @@
         public int EnderecoId { get; set; }
         public override void Validate()
         {
-            if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Site))
-            {
-                AdicionarCritica("Informe algum contato!");
-            }
+
             if (string.IsNullOrEmpty(Nome))
             {
-                this.AdicionarCritica("Informe o nome!");
+                AdicionarCritica(" Informe um nome ");
             }
         }
-
     }
 }

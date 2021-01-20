@@ -54,9 +54,6 @@ namespace Agenda.Repository.Configurator
             builder
                 .Property(E => E.TipoEndereco)
                 .IsRequired();
-            
-            builder
-                .HasOne(E => E.Pessoa);
         }
     }
 }

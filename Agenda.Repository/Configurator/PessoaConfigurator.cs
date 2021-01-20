@@ -5,7 +5,7 @@ using System;
 
 namespace Agenda.Repository.Configurator
 {
-    public class PessoaConfigurator : IEntityTypeConfiguration<Pessoa>
+    class PessoaConfigurator : IEntityTypeConfiguration<Pessoa>
     {
         public void Configure(EntityTypeBuilder<Pessoa> builder)
         {

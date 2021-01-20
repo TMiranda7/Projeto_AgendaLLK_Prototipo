@@ -1,5 +1,4 @@
-﻿using Agenda.Dominio.DataObject;
-using Agenda.Dominio.Enum;
+﻿using Agenda.Dominio.Enum;
 
 namespace Agenda.Dominio.Entity
 {
@@ -18,7 +17,6 @@ namespace Agenda.Dominio.Entity
         public EnumTipoEndereco TipoEndereco { get; set; }
         public override void Validate()
         {
-            LimparValidacao();
             if (string.IsNullOrEmpty(CEP))
             {
                 AdicionarCritica("Informe o CEP");
