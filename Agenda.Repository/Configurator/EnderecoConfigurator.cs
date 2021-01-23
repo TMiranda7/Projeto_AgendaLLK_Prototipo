@@ -10,49 +10,49 @@ namespace Agenda.Repository.Configurator
         public void Configure(EntityTypeBuilder<Endereco> builder)
         {
             builder
-                .HasKey(E => E.Id);
+                .HasKey(E => E.id);
             
             builder
-                .Property(E => E.Logradouro)
+                .Property(E => E.logradouro)
                 .IsRequired()
                 .HasMaxLength(50);
 
             builder
-                .Property(E => E.Numero)
+                .Property(E => E.numero)
                 .IsRequired()
                 .HasMaxLength(4);
             
             builder
-                .Property(E => E.Complemento)
+                .Property(E => E.complemento)
                 .HasMaxLength(100);
             
             builder
-                .Property(E => E.Bairro)
+                .Property(E => E.bairro)
                 .IsRequired()
                 .HasMaxLength(50);
             
             builder
-                .Property(E => E.Cidade)
+                .Property(E => E.cidade)
                 .IsRequired()
                 .HasMaxLength(50);
             
             builder
-                .Property(E => E.Estado)
+                .Property(E => E.estado)
                 .IsRequired()
                 .HasMaxLength(30);
             
             builder
-                .Property(E => E.CEP)
+                .Property(E => E.cep)
                 .IsRequired()
                 .HasMaxLength(8);
 
             builder
-                .HasOne(E => E.Pessoa)
-                .WithOne(E => E.Endereco)
-                .HasForeignKey<Pessoa>(E => E.EnderecoId);
+                .HasOne(E => E.pessoa)
+                .WithOne(E => E.endereco)
+                .HasForeignKey<Pessoa>(E => E.enderecoId);
             
             builder
-                .Property(E => E.TipoEndereco)
+                .Property(E => E.tipoEndereco)
                 .IsRequired();
         }
     }

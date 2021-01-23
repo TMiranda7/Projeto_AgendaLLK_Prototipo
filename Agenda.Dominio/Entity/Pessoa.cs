@@ -2,20 +2,20 @@
 {
     public class Pessoa : Entity
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string CPF { get; set; }
-        public int TipoContato { get; set; }
-        public int Celular { get; set; }
-        public int Telefone { get; set; }
-        public string Email { get; set; }
-        public string Site { get; set; }
-        public virtual Endereco Endereco { get; set; }
-        public int EnderecoId { get; set; }
+        public int id { get; set; }
+        public string nome { get; set; }
+        public string cpf { get; set; }
+        public int tipoContato { get; set; }
+        public int celular { get; set; }
+        public int telefone { get; set; }
+        public string email { get; set; }
+        public string site { get; set; }
+        public virtual Endereco endereco { get; set; }
+        public int enderecoId { get; set; }
         public override void Validate()
         {
 
-            if (string.IsNullOrEmpty(Nome))
+            if (string.IsNullOrEmpty(nome))
             {
                 AdicionarCritica(" Informe um nome ");
             }

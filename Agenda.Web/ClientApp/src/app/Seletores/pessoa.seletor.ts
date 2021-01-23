@@ -2,7 +2,6 @@ import { ObjectMapper } from 'json-object-mapper';
 import { EnderecoSeletor } from "./endereco.seletor";
 
 export class PessoaSeletor {
-    public Id : number = 0 ;
     public nome : string = '' ;
     public cpf : string = '' ;
     public endereco : EnderecoSeletor ;

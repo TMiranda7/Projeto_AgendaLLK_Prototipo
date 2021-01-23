@@ -31,24 +31,24 @@
     </div>
     <div class="form-row" style="margin-bottom: 10px;">
         <div class="col">
-            <input type="text" class="form-control" style="width: 39rem;" [(ngModel)]="pessoa.endereco.logradouro" placeholder="Logradouro" id="logradouro" name="logradouro">
+            <input type="text" class="form-control" style="width: 39rem;" [(ngModel)]="endereco.logradouro" placeholder="Logradouro" id="logradouro" name="logradouro">
         </div>
         <div class="col">
-            <input type="number" class="form-control" style="width: 9rem;" [(ngModel)]="pessoa.endereco.numero" placeholder="Nº " name="numero">
+            <input type="number" class="form-control" style="width: 9rem;" [(ngModel)]="endereco.numero" placeholder="Nº " name="numero">
         </div>
         <div class="col">
-            <input type="number" class="form-control" [(ngModel)]="pessoa.endereco.cep" style="width: 19rem;" placeholder="Cep" (blur)="searchCep($event.target.value, f)" name="cep">
+            <input type="number" class="form-control" [(ngModel)]="endereco.cep" style="width: 19rem;" placeholder="Cep" (blur)="searchCep($event.target.value, f)" name="cep">
         </div>
     </div>
     <div class="form-row" style="margin-bottom: 10px;">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Bairro" [(ngModel)]="pessoa.endereco.bairro" name="bairro">
+            <input type="text" class="form-control" placeholder="Bairro" [(ngModel)]="endereco.bairro" name="bairro">
         </div>    
         <div class="col">
-            <input type="text" class="form-control" placeholder="Cidade" [(ngModel)]="pessoa.endereco.cidade" name="cidade">
+            <input type="text" class="form-control" placeholder="Cidade" [(ngModel)]="endereco.cidade" name="cidade">
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Estado" [(ngModel)]="pessoa.endereco.estado" name="estado">
+            <input type="text" class="form-control" placeholder="Estado" [(ngModel)]="endereco.estado" name="estado">
         </div>
     </div>
 </form>

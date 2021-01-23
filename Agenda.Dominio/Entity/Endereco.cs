@@ -4,20 +4,20 @@ namespace Agenda.Dominio.Entity
 {
     public class Endereco : Entity
     {
-        public int Id { get; set; }
-        public string Logradouro { get; set; }
-        public int Numero { get; set; }
-        public string Complemento { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public string CEP { get; set; }
-        public virtual Pessoa Pessoa { get;set;}
-        public int PessoaId { get; set; }
-        public EnumTipoEndereco TipoEndereco { get; set; }
+        public int id { get; set; }
+        public string logradouro { get; set; }
+        public int numero { get; set; }
+        public string complemento { get; set; }
+        public string bairro { get; set; }
+        public string cidade { get; set; }
+        public string estado { get; set; }
+        public string cep { get; set; }
+        public virtual Pessoa pessoa { get;set;}
+        public int pessoaId { get; set; }
+        public EnumTipoEndereco tipoEndereco { get; set; }
         public override void Validate()
         {
-            if (string.IsNullOrEmpty(CEP))
+            if (string.IsNullOrEmpty(cep))
             {
                 AdicionarCritica("Informe o CEP");
             }

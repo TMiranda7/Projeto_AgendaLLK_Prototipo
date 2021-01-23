@@ -5,9 +5,10 @@ export interface PessoaModel {
     nome: string;
     cpf: string;
     endereco: EnderecoModel 
-    tipoContato: string;
-    telefone: string;
-    celular: string;
+    tipoContato: number;
+    telefone: number;
+    celular: number;
     email: string;
     site: string;
+    enderecoId: number;
 }

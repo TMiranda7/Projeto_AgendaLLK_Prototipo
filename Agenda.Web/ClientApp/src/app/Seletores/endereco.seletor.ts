@@ -1,7 +1,7 @@
 import { ObjectMapper } from "json-object-mapper";
 
 export class EnderecoSeletor {
-    public CEP : number = 0 ;
+    public cep : number = 0 ;
     public logradouro : string = '' ;
     public complemento : string = '' ;
     public numero : number = 0 ;

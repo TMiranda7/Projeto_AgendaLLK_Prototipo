@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EnderecoModel } from '../Models/endereco.model';
 import { PessoaModel } from '../Models/pessoa.model';
 import { ContatoService } from '../Services/contato.services';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { EnderecoService } from '../Services/endereco.service';
 
 @Component({
     selector: 'app-contato-component',
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 export class ContatoComponent  {
 
     public endereco:EnderecoModel = {
-      CEP:'',
+      cep:'',
       bairro:'',
       cidade:'',
       complemento:'',
@@ -26,21 +26,31 @@ export class ContatoComponent  {
 
     public pessoa : PessoaModel = {
       nome: '',
-      celular: '',
+      celular: 0,
       cpf: '',
       email: '',
       endereco: this.endereco,
       site:'',
-      telefone: '',
-      tipoContato: '',
+      telefone: 0,
+      tipoContato: 0,
+      enderecoId: 0
     }
 
-  constructor( public service : ContatoService ,private router: Router , public http: HttpClient ) {
+  constructor( public servicePessoa : ContatoService , public serviceEndereco : EnderecoService , private router: Router , public http: HttpClient ) {
     this.pessoa;
   }
 
   salvar(){
-    console.log(this.pessoa)
+    // console.log(this.pessoa);
+
+    // this.serviceEndereco.salvar(this.endereco).subscribe(resEnd => {
+    //   this.pessoa.enderecoId = resEnd.id
+    //   this.servicePessoa.salvar(this.pessoa).subscribe( resPes => {
+    //   } )
+    // })
+
+    this.servicePessoa.salvar(this.pessoa)
+        .subscribe( res => console.log(this.pessoa));
   }
 
   cancelar(){
@@ -49,10 +59,9 @@ export class ContatoComponent  {
 
   searchCep(cep , form){
     if( cep ){
-      this.service.ObterCep(cep).subscribe( dado => this.popularDados( dado , form ) )
+      this.serviceEndereco.ObterCep(cep).subscribe( dado => this.popularDados( dado , form ) )
     }
   }
-
   popularDados( dados, formulario){
 
     formulario.form.patchValue({

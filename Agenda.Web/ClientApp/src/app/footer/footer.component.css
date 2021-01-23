@@ -1,6 +1,9 @@
-.footer{
+.card{
   position: fixed;
   bottom: 0;
+
+  white-space: normal;
+  word-break: break-all;
 
   display: flex;
   justify-content: flex-end;
