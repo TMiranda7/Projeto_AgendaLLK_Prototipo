@@ -46,10 +46,6 @@ namespace Agenda.Repository.Configurator
                 .IsRequired()
                 .HasMaxLength(8);
 
-            builder
-                .HasOne(E => E.pessoa)
-                .WithOne(E => E.endereco)
-                .HasForeignKey<Pessoa>(E => E.enderecoId);
             
             builder
                 .Property(E => E.tipoEndereco)

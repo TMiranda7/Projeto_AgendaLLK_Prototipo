@@ -29,7 +29,6 @@ export class ContatoComponent  {
       celular: 0,
       cpf: '',
       email: '',
-      endereco: this.endereco,
       site:'',
       telefone: 0,
       tipoContato: 0,
@@ -41,16 +40,11 @@ export class ContatoComponent  {
   }
 
   salvar(){
-    // console.log(this.pessoa);
-
-    // this.serviceEndereco.salvar(this.endereco).subscribe(resEnd => {
-    //   this.pessoa.enderecoId = resEnd.id
-    //   this.servicePessoa.salvar(this.pessoa).subscribe( resPes => {
-    //   } )
-    // })
-
-    this.servicePessoa.salvar(this.pessoa)
-        .subscribe( res => console.log(this.pessoa));
+    this.serviceEndereco.salvar(this.endereco).subscribe(resEnd => {
+      this.pessoa.enderecoId = resEnd.id
+      this.servicePessoa.salvar(this.pessoa).subscribe( resPes => {
+      } )
+    })
   }
 
   cancelar(){

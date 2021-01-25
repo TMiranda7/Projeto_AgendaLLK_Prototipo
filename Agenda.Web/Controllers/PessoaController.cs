@@ -40,5 +40,19 @@ namespace Agenda.Web.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+
+        [HttpPost("Delete")]
+        public IActionResult Delete ([FromBody] Pessoa pessoa)
+        {
+            try
+            {
+                pessoaRepository.Remove(pessoa);
+                return Json(pessoaRepository.ObterTodos());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+        }
     }
 }
