@@ -46,7 +46,6 @@ namespace Agenda.Repository.Configurator
                 .IsRequired()
                 .HasMaxLength(8);
 
-            
             builder
                 .Property(E => E.tipoEndereco)
                 .IsRequired();

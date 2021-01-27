@@ -12,8 +12,7 @@ namespace Agenda.Dominio.Entity
         public string cidade { get; set; }
         public string estado { get; set; }
         public string cep { get; set; }
-        public virtual Pessoa pessoa { get;set;}
-        public int pessoaId { get; set; }
+//      public virtual Pessoa pessoa { get;set;}        
         public EnumTipoEndereco tipoEndereco { get; set; }
         public override void Validate()
         {

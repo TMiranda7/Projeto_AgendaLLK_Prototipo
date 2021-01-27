@@ -39,8 +39,11 @@ export class EnderecoService implements OnInit {
     })
   }
 
-  // public obterProduto( PessoaId: number ):Observable<PessoaModel>{
-  //   return this.http.get<PessoaModel>(`${this.Url}api/pessoa/obter`)
-  // }
+  public obterEndereco( endereco: number ):Observable<EnderecoModel>{
+    return this.http.get<EnderecoModel>(`${this.Url}api/endereco?id=${endereco}`)
+  }
 
+  public obterTodos(  id : number ):Observable<EnderecoModel[]>{
+    return this.http.get<EnderecoModel[]>(`${this.Url}api/endereco` ,{headers: this.header })
+  }
 }

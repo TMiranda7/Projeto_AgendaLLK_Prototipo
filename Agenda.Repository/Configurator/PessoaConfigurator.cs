@@ -29,8 +29,7 @@ namespace Agenda.Repository.Configurator
 
             builder
                 .HasOne(P => P.endereco)
-                .WithOne(P => P.pessoa)
-                .HasForeignKey<Endereco>(P => P.pessoaId);
+                .WithOne();
 
             builder
                 .Property(C => C.celular)

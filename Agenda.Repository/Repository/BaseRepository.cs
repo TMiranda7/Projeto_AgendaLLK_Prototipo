@@ -35,6 +35,7 @@ namespace Agenda.Repository.Repository
         public IEnumerable<TEntity> ObterTodos()
         {
             return AgendaContext.Set<TEntity>().ToList();
+
         }
 
         public void Remove(TEntity entity)

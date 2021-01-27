@@ -10,4 +10,5 @@ export interface PessoaModel {
     email: string;
     site: string;
     enderecoId: number;
+    endereco: EnderecoModel;
 }

@@ -10,8 +10,8 @@
         public int telefone { get; set; }
         public string email { get; set; }
         public string site { get; set; }
-        public virtual Endereco endereco { get; set; }
         public int enderecoId { get; set; }
+        public virtual Endereco endereco { get; set; }
         public override void Validate()
         {
 

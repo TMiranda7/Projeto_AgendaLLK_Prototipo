@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { EnderecoService } from '../Services/endereco.service';
+import { PessoaSeletor } from '../Seletores/pessoa.seletor';
 
 @Component({
     selector: 'app-contato-component',
@@ -32,11 +33,23 @@ export class ContatoComponent  {
       site:'',
       telefone: 0,
       tipoContato: 0,
-      enderecoId: 0
+      enderecoId: 0,
+      endereco: this.endereco
     }
 
-  constructor( public servicePessoa : ContatoService , public serviceEndereco : EnderecoService , private router: Router , public http: HttpClient ) {
+  constructor( public servicePessoa : ContatoService , public serviceEndereco : EnderecoService ,
+               private router: Router , public http: HttpClient ) 
+  {
     this.pessoa;
+  }
+
+  ngOnInit():void {
+    let contatoSession = sessionStorage.getItem('contatoSession')
+    //let enderecoSession = sessionStorage.getItem('enderecoSession')
+    if(contatoSession){
+      this.pessoa = JSON.parse(contatoSession);
+      this.endereco = this.pessoa.endereco
+    }
   }
 
   salvar(){

@@ -15,11 +15,19 @@ namespace Agenda.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Get()
+        public ActionResult Get(Endereco endereco)
         { 
             try
             {
-                return Ok(enderecoRepository.ObterTodos());
+                if (endereco.id > 0)
+                {
+                    return Ok(enderecoRepository.ObterId(endereco));
+                }
+                else
+                {
+                    return Ok(enderecoRepository.ObterTodos());
+                }
+                
             }
             catch (Exception ex)
             {

@@ -32,7 +32,15 @@ namespace Agenda.Web.Controllers
         {
             try
             {
-                pessoaRepository.Add(pessoa);
+                if( pessoa.id > 0)
+                {
+                    pessoaRepository.Update(pessoa);
+
+                }else
+                {
+                    pessoaRepository.Add(pessoa);
+                }
+                
                 return Created("api/pessoa", pessoa);
             }
             catch (Exception ex)

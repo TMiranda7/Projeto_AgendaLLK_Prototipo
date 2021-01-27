@@ -33,11 +33,7 @@ export class ContatoService implements OnInit {
     return this.http.post<PessoaModel[]>(`${this.Url}api/pessoa/delete` , JSON.stringify(pessoa),{ headers: this.header })
   }
 
-  // public obterProduto( PessoaId: number ):Observable<PessoaModel>{
-  //   return this.http.get<PessoaModel>(`${this.Url}api/pessoa/obter`)
-  // }
-
   public obterTodos():Observable<PessoaModel[]>{
-    return this.http.get<PessoaModel[]>(`${this.Url}api/pessoa`,{ headers: this.header })
+    return this.http.get<PessoaModel[]>(`${this.Url}api/pessoa` ,{ headers: this.header })
   }
 }
