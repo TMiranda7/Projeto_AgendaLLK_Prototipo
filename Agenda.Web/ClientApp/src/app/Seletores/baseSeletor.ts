@@ -1,7 +1,7 @@
 import { ObjectMapper } from "json-object-mapper";
 
 export abstract class Seletor {
-  public Id: number;  
+  public Id: number = 0;  
   
   abstract Create(input: any): any;  
   

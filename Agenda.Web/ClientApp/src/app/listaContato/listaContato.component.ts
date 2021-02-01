@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { EnderecoSeletor } from '../Seletores/endereco.seletor';
 import { ContatoService } from '../Services/contato.services';
 import { PessoaModel } from '../Models/pessoa.model';
+import { PessoaSeletor,EnderecoSeletor } from '../Seletores/contato.seletor';
 import { Router } from '@angular/router';
 import { EnderecoModel } from '../Models/endereco.model';
-import { EnderecoService } from '../Services/endereco.service';
 
 @Component({
   selector: 'app-listaContato',
@@ -17,7 +16,7 @@ export class ListaContatoComponent implements OnInit {
   public enderecos : any[] ;
   public pessoa: PessoaModel ;
   public endereco : EnderecoModel ;
-  public enderecoSeletor: EnderecoSeletor ;
+  public pessoaSeletor : PessoaSeletor;
 
   constructor( private pessoaService : ContatoService, private router: Router ) {
     pessoaService.obterTodos().subscribe( res => {
@@ -25,10 +24,13 @@ export class ListaContatoComponent implements OnInit {
     })    
   }
 
-  alterar( pessoa : PessoaModel ){
-  
+  alterar( pessoa : PessoaModel ){  
     sessionStorage.setItem('contatoSession', JSON.stringify(pessoa));
     this.router.navigate(['lista/contato'])
+  }
+
+  novo(){
+    sessionStorage.setItem('contatoSession', JSON.stringify(''));
   }
 
   deletar( valor : PessoaModel ){

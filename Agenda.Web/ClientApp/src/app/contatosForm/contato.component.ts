@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { EnderecoModel } from '../Models/endereco.model';
-import { PessoaModel } from '../Models/pessoa.model';
 import { ContatoService } from '../Services/contato.services';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { EnderecoService } from '../Services/endereco.service';
-import { PessoaSeletor } from '../Seletores/pessoa.seletor';
+import { PessoaSeletor , EnderecoSeletor } from '../Seletores/contato.seletor';
 
 @Component({
     selector: 'app-contato-component',
@@ -14,41 +11,26 @@ import { PessoaSeletor } from '../Seletores/pessoa.seletor';
     styleUrls:['./contato.component.css']
 })
 export class ContatoComponent  {
+   
+    public endereco : EnderecoSeletor = new EnderecoSeletor();
+    public pessoa : PessoaSeletor = new PessoaSeletor();
 
-    public endereco:EnderecoModel = {
-      cep:'',
-      bairro:'',
-      cidade:'',
-      complemento:'',
-      estado:'',
-      logradouro:'',
-      numero:''
-    }
-
-    public pessoa : PessoaModel = {
-      nome: '',
-      celular: 0,
-      cpf: '',
-      email: '',
-      site:'',
-      telefone: 0,
-      tipoContato: 0,
-      enderecoId: 0,
-      endereco: this.endereco
-    }
-
-  constructor( public servicePessoa : ContatoService , public serviceEndereco : EnderecoService ,
+  constructor( public servicePessoa : ContatoService, public serviceEndereco : EnderecoService,
                private router: Router , public http: HttpClient ) 
   {
+    
+    console.log(this.pessoa)
     this.pessoa;
+
   }
 
-  ngOnInit():void {
+  ngOnInit():void { 
     let contatoSession = sessionStorage.getItem('contatoSession')
-    //let enderecoSession = sessionStorage.getItem('enderecoSession')
+    sessionStorage.clear();
     if(contatoSession){
       this.pessoa = JSON.parse(contatoSession);
-      this.endereco = this.pessoa.endereco
+      this.endereco = this.pessoa.endereco;
+      
     }
   }
 
@@ -58,6 +40,8 @@ export class ContatoComponent  {
       this.servicePessoa.salvar(this.pessoa).subscribe( resPes => {
       } )
     })
+
+    this.router.navigate(['/lista']);
   }
 
   cancelar(){
@@ -69,14 +53,18 @@ export class ContatoComponent  {
       this.serviceEndereco.ObterCep(cep).subscribe( dado => this.popularDados( dado , form ) )
     }
   }
-  popularDados( dados, formulario){
 
+  popularDados( dados, formulario){
     formulario.form.patchValue({
         logradouro : dados.logradouro,
         bairro: dados.bairro ,
         cidade : dados.localidade,
         estado : dados.uf
     });
+  }
+
+  cleaner(){
+    this.pessoa = new PessoaSeletor();
   }
 
   resetDados(formulario){
